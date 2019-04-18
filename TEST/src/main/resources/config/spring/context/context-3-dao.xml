@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="member_dao" class="dao.MemberDAO">
+		<!-- 2번 xml에서 만든 객체 주입 -->
+		<property name="sqlSession" ref="sqlSessionBean"></property>
+		
+	</bean>	
+	<!--  이 모든 bean들을 하나의 xml에서도 해도 되지만 구분해서 별도로 생성 -->	
+</beans>
