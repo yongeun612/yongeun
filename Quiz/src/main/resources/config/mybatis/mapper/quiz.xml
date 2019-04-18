@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="quiz">
+
+<select resultType="vo.QuizSelectVO" id="quiz_list">
+select * from quizselect where qs_idx=1 
+</select>
+
+<select resultType="vo.QuizSelectVO" id="quiz_nextlist" parameterType="int">
+select * from quizselect where qs_idx=#{q_idx} 
+</select>
+
+<select resultType="int" id="quiz_countlist">
+select count(*) from quizselect
+ </select>
+
+<select resultType="vo.QuizMember" id="quiz_rank">
+select mem_name,mem_score,(select count(*)+1 from quizmember 
+where mem_score>t.mem_score )as rank from quizmember t order by rank asc 
+</select>
+
+<insert id="quiz_insert" parameterType="vo.QuizSelectVO" useGeneratedKeys="false">
+insert into quizselect values(quiz_qs_seq.nextval,#{qs_question},#{ex1},#{ex2},#{ex3},#{ex4},#{qs_answer},#{qs_mem_id})
+ </insert>
+ 
+ <update id="quiz_score" parameterType="vo.QuizMember">
+ update quizmember set mem_score=#{mem_score} where mem_name=#{mem_name}
+ </update>
+</mapper>
+
