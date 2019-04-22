@@ -26,36 +26,43 @@ public class MenuController {
 		this.member_dao = member_dao;
 	}
 	
-	@RequestMapping("/main")
+	@RequestMapping(value = "/main.do")
 	public String main(Model model) {
 		model.addAttribute("list",null);
 		return "/WEB-INF/views/blog/main.jsp";
 		
 	}
 	
-	@RequestMapping("/about.korea")
+	@RequestMapping(value = "/about.do")
 	public String about(Model model) {
 		model.addAttribute("list",null);
 		return "/WEB-INF/views/blog/about.jsp";
 		
 	}
 	
-	@RequestMapping("/post.korea")
+	@RequestMapping(value = "/post.do")
 	public String post(Model model) {
 		model.addAttribute("list",null);
 		return "/WEB-INF/views/blog/post.jsp";
 		
 	}
 	
-	@RequestMapping("/signup.korea")
+	@RequestMapping(value = "/signup.do")
 	public String contact(Model model) {
 		model.addAttribute("list",null);
 		return "/WEB-INF/views/blog/signup.jsp";
 		
 	}
 	
-	@RequestMapping("/login.korea")
+	@RequestMapping(value = "/login.do")
 	public String login(Model model) {
+		model.addAttribute("list",null);
+		return "/WEB-INF/views/blog/login.jsp";
+		
+	}
+	
+	@RequestMapping(value = "/loginCheck.do")
+	public String loginCheck(Model model) {
 		model.addAttribute("list",null);
 		return "/WEB-INF/views/blog/login.jsp";
 		

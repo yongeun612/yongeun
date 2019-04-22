@@ -9,6 +9,7 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
+	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -18,6 +19,7 @@
 	<beans:bean id="member_daoBean" class="controller.MenuController">
 		<beans:constructor-arg ref="member_dao"/>
 	</beans:bean>
+	
 	
 	
 </beans:beans>

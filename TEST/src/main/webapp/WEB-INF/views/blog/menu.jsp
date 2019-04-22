@@ -31,19 +31,19 @@
 	      <div class="collapse navbar-collapse" id="navbarResponsive">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item">
-	            <a class="nav-link" href="main.korea">Home</a>
+	            <a class="nav-link" href="main.do">Home</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="about.korea">About</a>
+	            <a class="nav-link" href="about.do">About</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="post.korea">Sample Post</a>
+	            <a class="nav-link" href="post.do">Sample Post</a>
 	          </li>
 	          <li class="nav-item">
-	          	<a class="nav-link" href="login.korea">Sign in</a>
+	          	<a class="nav-link" href="login.do">Sign in</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="signup.korea">Sign up</a>
+	            <a class="nav-link" href="signup.do">Sign up</a>
 	          </li>
 	        </ul>
 	      </div>
