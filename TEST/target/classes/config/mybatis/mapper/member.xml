@@ -4,8 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-	<select id="member_list" resultType="vo.MemberVO">
-		select * from blog
+	<select id="loginCheck" parameterType="vo.MemberVO" resultType="String">
+		SELECT blog_name FROM blog
+		WHERE blog_id = #{blog_id} AND blog_pw = #{blog_pw} 
 	</select>
 
 </mapper>

@@ -1,7 +1,6 @@
 package vo;
 
 public class MemberVO {
-	// 이때 멤버변수이름은 테이블의 컬럼명과 일치시킴
 	
 	private int blog_idx;
 	private String blog_name;

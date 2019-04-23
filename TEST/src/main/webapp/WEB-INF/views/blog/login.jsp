@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,8 +18,8 @@
 
 <script>
 function send(f) {
-	var userId = f.userId.value.trim();
-	var userPw = f.password.value.trim();
+	var userId = f.blog_id.value.trim();
+	var userPw = f.blog_pw.value.trim();
 	if(userId == ""){
 		alert("아이디를 입력하세요.");
 		f.userId.focus();
@@ -33,28 +35,6 @@ function send(f) {
 	
 }
 
-
-/* 
-$(document).ready(function(){
-	$("#btnlogin").click(function(){
-	var userId = $("#userId").val();
-	var userPw = $("#password").val();
-	console.log(userId, userPw);
-	if(userId == ""){
-		alert("아이디를 입력하세요.");
-		$("#userId").focus();
-		return;
-	}
-	if(userPw == ""){
-		alert("비밀번호를 입력하세요.");
-		$("#password").focus();
-		return;
-	}
-	document.loginForm.action="loginCheck.do";
-	document.loginForm.submit();
-	});
-}); */
-
 </script>
 </head>
 
@@ -63,9 +43,13 @@ $(document).ready(function(){
   <div class="login-card">
     <h1>Log-in</h1><br>
   <form name="loginForm" method="post">
-    <input type="text" name="userId"  id="userId" placeholder="Username">
-    <input type="password" name="password" id="password" placeholder="Password">
+    <input type="text" name="blog_id"  id="blog_id" placeholder="Username">
+    <input type="password" name="blog_pw" id="blog_pw" placeholder="Password">
     <input type="button" name="btnlogin" id="btnlogin" class="login login-submit" value="login" onclick="send(this.form);">
+  	
+  	<c:if test="${msg == 'failure'}">
+  		<div style="color: red"> <h5>아이디 또는 비밀번호가 일치하지 않습니다.</h5></div>
+  	</c:if>
   </form>
 
   <div class="login-help">
