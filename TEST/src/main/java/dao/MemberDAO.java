@@ -30,6 +30,12 @@ public class MemberDAO {
 		return (name == null) ? false : true;
 	}
 
+
+	public String idCheck(String blog_id) {
+		String name = sqlSession.selectOne("member.IdCheck",blog_id);
+		return (name == null) ? "0" : "1";
+	}
+
 	
 
 }

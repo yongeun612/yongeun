@@ -11,29 +11,29 @@
   <meta charset="UTF-8">
 
   <title>Login</title>
-
+  
   <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
-
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/loginstyle.css" media="screen" type="text/css" />
-
+  
 <script>
 function send(f) {
 	var userId = f.blog_id.value.trim();
 	var userPw = f.blog_pw.value.trim();
 	if(userId == ""){
 		alert("아이디를 입력하세요.");
-		f.userId.focus();
+		f.blog_id.focus();
 		return;
 	}
 	if(userPw == ""){
 		alert("패스워드를 입력하세요.");
-		f.password.focus();
+		f.blog_pw.focus();
 		return;
 	}
 	f.action="loginCheck.do";
 	f.submit();
 	
 }
+
 
 </script>
 </head>
@@ -42,7 +42,7 @@ function send(f) {
 
   <div class="login-card">
     <h1>Log-in</h1><br>
-  <form name="loginForm" method="post">
+  <form name="loginForm" method="POST">
     <input type="text" name="blog_id"  id="blog_id" placeholder="Username">
     <input type="password" name="blog_pw" id="blog_pw" placeholder="Password">
     <input type="button" name="btnlogin" id="btnlogin" class="login login-submit" value="login" onclick="send(this.form);">

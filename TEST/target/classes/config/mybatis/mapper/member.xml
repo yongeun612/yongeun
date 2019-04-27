@@ -9,6 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE blog_id = #{blog_id} AND blog_pw = #{blog_pw} 
 	</select>
 
+	<select id="IdCheck" parameterType="String" resultType="String">
+		SELECT blog_id FROM blog
+		WHERE blog_id = #{blog_id}
+	</select>
 </mapper>
 
 
