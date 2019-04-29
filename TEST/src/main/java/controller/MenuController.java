@@ -21,6 +21,7 @@ import vo.MemberVO;
 @Controller
 public class MenuController {
 	
+	public static final String VIEW_PATH = "/WEB-INF/views/blog/";
 	MemberDAO member_dao;
 	
 	public MenuController() { 
@@ -35,41 +36,41 @@ public class MenuController {
 	@RequestMapping(value = "/main.do")
 	public String main() {
 		
-		return "/WEB-INF/views/blog/main.jsp";
+		return VIEW_PATH+"main.jsp";
 		
 	}
 	//페이지 이동
 	@RequestMapping(value = "/about.do")
 	public String about() {
 		
-		return "/WEB-INF/views/blog/about.jsp";
+		return VIEW_PATH+"about.jsp";
 		
 	}
 	
 	@RequestMapping(value = "/post.do")
 	public String post() {
 		
-		return "/WEB-INF/views/blog/post.jsp";
+		return VIEW_PATH+"post.jsp";
 		
 	}
 	
 	@RequestMapping(value = "/signup.do")
 	public String contact() {
 		
-		return "/WEB-INF/views/blog/signup.jsp";
+		return VIEW_PATH+"signup.jsp";
 		
 	}
 	
 	@RequestMapping(value = "/login.do")
 	public String login() {
 		
-		return "/WEB-INF/views/blog/login.jsp";
+		return VIEW_PATH+"login.jsp";
 	}
 	
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "/WEB-INF/views/blog/main.jsp";
+		return VIEW_PATH+"main.jsp";
 	}
 	
 	
@@ -96,10 +97,16 @@ public class MenuController {
 		
 		String idCheck = member_dao.idCheck(blog_id);
 		
-		System.out.println(idCheck);
-	
 		return idCheck; 
 	}
 	
+	@RequestMapping(value = "/memberSend.do")
+	public String memberSend(@ModelAttribute MemberVO vo){
+		System.out.println(vo.getBlog_id());
+		member_dao.insertMember(vo);
+		
+		return VIEW_PATH+"main.jsp";
+		
+	}
 	
 }

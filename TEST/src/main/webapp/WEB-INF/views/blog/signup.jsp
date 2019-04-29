@@ -98,7 +98,9 @@
 				f.blog_rpw.focus();
 				return;
 			}
-			f.action="main.do";
+			
+			confirm("가입하시겠습니까?");
+			f.action="memberSend.do";
 			f.submit();
 		}
   </script>	
@@ -131,25 +133,25 @@
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="signupForm" id="signupForm" >
+        <form name="signupForm" id="signupForm" method="POST">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" id="blog_name" required data-validation-required-message="Please enter your name.">
+              <input type="text" class="form-control" placeholder="Name" name="blog_name" id="blog_name" required data-validation-required-message="Please enter your name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Email Address</label>
-              <input type="email" class="form-control" placeholder="Email Address" id="blog_email" required data-validation-required-message="Please enter your email address.">
+              <input type="email" class="form-control" placeholder="Email Address" name="blog_email" id="blog_email" required data-validation-required-message="Please enter your email address.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label>ID</label>
-              <input type="text" class="form-control" placeholder="ID" id="blog_id" oninput="idCheck();" required data-validation-required-message="Please enter your Id.">
+              <input type="text" class="form-control" placeholder="ID" name="blog_id" id="blog_id"  oninput="idCheck();" required data-validation-required-message="Please enter your Id.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -157,7 +159,7 @@
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label>Password</label>
-              <input type="password" class="form-control" placeholder="Password" id="blog_pw" oninput="pwCheck();" required data-validation-required-message="Please enter your password.">
+              <input type="password" class="form-control" placeholder="Password" name="blog_pw" id="blog_pw" oninput="pwCheck();" required data-validation-required-message="Please enter your password.">
               <p class="help-block text-danger"></p>
             </div>
           </div>

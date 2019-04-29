@@ -36,6 +36,10 @@ public class MemberDAO {
 		return (name == null) ? "0" : "1";
 	}
 
+	public void insertMember(MemberVO vo) {
+      sqlSession.insert("member.insertMember",vo);		
+	}
+
 	
 
 }
