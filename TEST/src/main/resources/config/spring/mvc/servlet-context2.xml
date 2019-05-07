@@ -15,9 +15,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+
 	
-	<beans:bean id="member_daoBean" class="controller.MenuController">
-		<beans:constructor-arg ref="member_dao"/>
+	<beans:bean id="board_daoBean" class="controller.ContentController">
+		<beans:constructor-arg ref="board_dao"/>
 	</beans:bean>
 	
 	

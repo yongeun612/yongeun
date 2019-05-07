@@ -43,7 +43,7 @@ public class MenuController {
 	@RequestMapping(value = "/about.do")
 	public String about() {
 		
-		return VIEW_PATH+"about.jsp";
+		return VIEW_PATH+"write.jsp";
 		
 	}
 	

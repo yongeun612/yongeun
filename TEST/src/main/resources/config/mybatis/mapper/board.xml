@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<insert id="insertBoard" parameterType="vo.BoardVO" useGeneratedKeys="false">
+	insert into board values(seq_board_idx.nextval,
+		#{board_title},
+		#{board_content},
+		#{board_writer},
+		sysdate,
+		0)
+	</insert>
+	
+	<select id="boardList" resultType="vo.BoardVO">
+		select board_idx,board_title,board_content,board_writer,board_date,board_cnt from board
+	</select>
+</mapper>

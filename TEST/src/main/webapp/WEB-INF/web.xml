@@ -25,7 +25,9 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath*:config/spring/mvc/servlet-context.xml</param-value>
+			<param-value>classpath*:config/spring/mvc/servlet-context.xml
+			classpath*:config/spring/mvc/servlet-context2.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -36,7 +38,7 @@
 	</servlet-mapping>
 	
 	
-	
+	<!--  
 	<error-page>
     	<error-code>404</error-code>
    		 <location>/WEB-INF/views/blog/errorPage.jsp</location>
@@ -46,7 +48,7 @@
     	<error-code>500</error-code>
     	<location>/WEB-INF/views/blog/errorPage.jsp</location>
     </error-page>
-
+-->
 
 
 </web-app>

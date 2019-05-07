@@ -6,6 +6,8 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="member_dao" class="dao.MemberDAO">
 		<property name="sqlSession" ref="sqlSessionBean"></property>
-		
-	</bean>	
+	</bean>
+	<bean id="board_dao" class="dao.BoardDAO">
+		<property name="sqlSession" ref="sqlSessionBean"></property>
+	</bean>		
 </beans>
