@@ -7,6 +7,12 @@
 <html lang="en">
 
 <head>
+  <script>
+  
+  	function list(page){
+  		location.href="${path}/app/boardList.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
+  	}
+  </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,29 +57,71 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-      <c:forEach items="${list}" var="boardVO">
+      <c:forEach items="${map.list}" var="list">
         <div class="post-preview">
-          <a href="post.html">
+          <a href="${path}/app/boardView.do?board_title=${list.board_title}">
             <h2 class="post-title">
-              ${boardVO.board_title}
+              ${list.board_title}
             </h2>
             <h3 class="post-subtitle">
-             ${boardVO.board_writer}
+             ${list.board_writer}
             </h3>
           </a>
           <p class="post-meta">Posted on 
-          <fmt:parseDate value="${boardVO.board_date} " var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+          <fmt:parseDate value="${list.board_date} " var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
      	  <fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/>
-          </p>
+                    click : ${list.board_cnt}</p>
+          <p></p>
         </div>
         </c:forEach>
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+	        <tr>
+			  	<td colspan="5">
+					<c:if test="${map.boardPager.curBlock > 1}">
+						<a href="javascript:list('1')">[처음]</a>
+					</c:if>
+			  		
+			  		<c:if test="${map.boardPager.curBlock > 1 }">
+			  			<a href="javascript:list('${map.boardPager.prevPage}')">[이전]</a>
+			  		</c:if>
+			  		
+			  		<c:forEach var="num" begin="${map.boardPager.blockBegin}" end="${map.boardPager.blockEnd}">
+			  			<c:choose>
+			  				<c:when test="${num == map.boardPager.curPage }">
+			  					<span style="color: red">${num}</span>&nbsp;
+			  				</c:when>
+			  				<c:otherwise>
+			  					<a href="javascript:list('${num}')">${num}</a>&nbsp;
+			  				</c:otherwise>
+			  			</c:choose>
+			  		</c:forEach>
+			  			
+			  		<c:if test="${map.boardPager.curBlock <= map.boardPager.totBlock}">
+			  			<a href="javascript:list('${map.boardPager.nextPage}')">[다음]</a>
+			  		</c:if>
+			  		
+			  		<c:if test="${map.boardPager.curPage <= map.boardPager.totPage}">
+			  			<a href="javascript:list('${map.boardPager.totPage}')">[끝]</a>
+			  		</c:if>
+			  	</td>
+			  </tr>
+  
+  <form name="searchForm" method="post" action="${path}/app/boardList.do">
+  	<select name="searchOption">
+  		<option value="all" <c:out value="${map.searchOption == 'all'?'selected':''}"/> >제목+이름+제목</option>
+  		<option value="board_title" <c:out value="${map.searchOption == 'board_title'?'selected':''}"/> >제목</option>
+  		<option value="board_writer" <c:out value="${map.searchOption == 'board_writer'?'selected':''}"/> >작성자</option>
+  		<option value="board_content" <c:out value="${map.searchOption == 'board_content'?'selected':''}"/> >내용</option>
+  	</select>
+  	<input name="keyword" value="${map.keyword}">
+  	<input type="submit" value="조회">
+  </form>
         </div>
       </div>
     </div>
   </div>
+  
 
   <hr>
 

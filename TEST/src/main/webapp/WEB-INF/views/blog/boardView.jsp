@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <head>
 
   <meta charset="utf-8">
@@ -27,38 +27,47 @@
 
 <body>
   <jsp:include page="menu.jsp"/>
-  
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/about-bg.jpg')">
+    <!-- Page Header -->
+  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>About Me</h1>
-            <span class="subheading">This is what I do.</span>
+          <div class="post-heading">
+            <h1>Man must explore, and this is exploration at its greatest</h1>
+            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+            <span class="meta">Posted by
+              <a href="#">Start Bootstrap</a>
+              on August 24, 2019</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading">${board.board_title}</h2>
+
+		  <p>${board.board_content}</p>
+
+			<div>
+				<button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='boardList.do'">목록</button>
+			</div>
+        </div>
       </div>
     </div>
-  </div>
+  </article>
 
   <hr>
 
   <!-- Footer -->
   <jsp:include page="footer.jsp"/>
-
+  
  </body>
 
 </html>

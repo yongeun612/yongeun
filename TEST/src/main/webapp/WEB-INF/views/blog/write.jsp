@@ -118,7 +118,7 @@
 			<div>
 				<button type="button" class="btn btn-sm btn-primary" id="btnSave" onclick="send(this.form);">저장</button>
 
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='main.do'">목록</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='boardList.do'">목록</button>
 			</div>
 
 			</form>

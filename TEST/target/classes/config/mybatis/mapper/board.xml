@@ -12,8 +12,47 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate,
 		0)
 	</insert>
+
+	<select id="boardCount" resultType="int">
+		select count(*) from board
+	</select>	
 	
-	<select id="boardList" resultType="vo.BoardVO">
-		select board_idx,board_title,board_content,board_writer,board_date,board_cnt from board
+	<select id="boardView" resultType="vo.BoardVO">
+		select * from board where board_title=#{board_title}
 	</select>
+	
+	<update id="boardClick">
+		update board set board_cnt = board_cnt+1 where board_title=#{board_title}
+	</update>
+	
+	<select id="listAll" resultType="vo.BoardVO">
+		<include refid="pagingHeader"></include>
+		select board_idx,board_title,board_writer,board_date,board_cnt from board
+		<include refid="search"></include>
+		order by board_idx desc, board_date desc
+		<include refid="pagingFooter"></include>
+	</select>
+	
+	<sql id="search">
+		<choose>
+			<when test="searchOption == 'all'">
+				where (board_title like '%'||#{keyword}||'%'
+					  OR board_content like '%'||#{keyword}||'%'
+					  OR board_writer like '%'||#{keyword}||'%')
+			</when>
+		
+			<otherwise>
+				where ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<sql id="pagingHeader">
+		select * from(
+			select rownum as rn, A.* from (
+	</sql>
+	<sql id="pagingFooter">
+			) A
+		) where rn between #{start} and #{end}
+	</sql>
 </mapper>

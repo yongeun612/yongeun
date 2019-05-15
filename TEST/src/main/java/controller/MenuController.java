@@ -36,7 +36,7 @@ public class MenuController {
 	@RequestMapping(value = "/main.do")
 	public String main() {
 		
-		return VIEW_PATH+"main.jsp";
+		return VIEW_PATH+"Test.jsp";
 		
 	}
 	//페이지 이동
