@@ -9,5 +9,8 @@
 	</bean>
 	<bean id="board_dao" class="dao.BoardDAO">
 		<property name="sqlSession" ref="sqlSessionBean"></property>
-	</bean>		
+	</bean>
+	<bean id="quiz_dao" class="dao.QuizDAO">
+		<property name="sqlSession" ref="sqlSessionBean"></property>
+	</bean>				
 </beans>

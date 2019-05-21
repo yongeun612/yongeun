@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <script>
@@ -14,7 +14,7 @@
   	}
   </script>
 
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -71,7 +71,7 @@
           <fmt:parseDate value="${list.board_date} " var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
      	  <fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/>
                     click : ${list.board_cnt}</p>
-          <p></p>
+          <hr>
         </div>
         </c:forEach>
         <!-- Pager -->
