@@ -2,11 +2,11 @@ package vo;
 
 public class MemberVO {
 	
-	private int blog_idx;
-	private String blog_name;
-	private String blog_id;
-	private String blog_pw;
-	private String blog_email;
+	private int blog_idx; //회원 인덱스
+	private String blog_name; //이름
+	private String blog_id;  //아이디
+	private String blog_pw; //비밀번호
+	private String blog_email; //이메일주소
 	
 	
 	public int getBlog_idx() {

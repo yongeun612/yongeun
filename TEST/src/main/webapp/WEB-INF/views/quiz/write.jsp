@@ -7,6 +7,7 @@
 
 
 <head>
+  <script src="${pageContext.request.contextPath}/resources/js/write.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -24,37 +25,6 @@
 
   <!-- Custom styles for this template -->
   <link href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css" rel="stylesheet">
-
-
-  <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
-
-<script>	
-		
-		function send(f){
-			var title = f.board_title.value;
-			var content = f.board_content.value;
-			var writer = f.board_writer.value;
-			if(title==""){
-				alert("제목을 입력해주세요.");
-				f.board_title.focus();
-				return;
-			}
-			if(writer==""){
-				alert("작성자를 입력해주세요.");
-				f.board_writer.focus();
-				return;
-			}
-			if(content==""){
-				alert("글내용을 입력해주세요.");
-				f.board_content.focus();
-				return;
-			}
-				
-			confirm("작성하시겠습니까?");
-			f.action="boardWrite.do";
-			f.submit();
-		}
-  </script>	
 
 </head>
 

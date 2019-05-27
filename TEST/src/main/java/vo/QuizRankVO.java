@@ -2,11 +2,11 @@ package vo;
 
 public class QuizRankVO {
 	
-	private int rankNum;
-	private int rank_idx;
-	private int rank_select_score;
-	private int rank_ox_score;
-	private String rank_user;
+	private int rankNum; //순위
+	private int rank_idx; //순위 인덱스
+	private int rank_select_score; //선택형 퀴즈 점수
+	private int rank_ox_score; //OX 퀴즈 점수
+	private String rank_user; //순위 유저아이디
 	
 	
 	public int getRank_ox_score() {

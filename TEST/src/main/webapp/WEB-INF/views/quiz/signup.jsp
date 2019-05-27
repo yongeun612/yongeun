@@ -7,7 +7,8 @@
 
 
 <head>
-
+  <script src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -26,90 +27,13 @@
   <!-- Custom styles for this template -->
   <link href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css" rel="stylesheet">
 
-
-  <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
-  <script>	
-	function idCheck() {
-			var id = document.getElementById("blog_id").value;
-			if (id == '') {
-				return;
-			}
-			var url = "idCheck.do";
-			var param = "blog_id="+encodeURIComponent(id);
-	
-			sendRequest(url, param, resultFn, "POST");
-		}
-	
-		function resultFn() {
-			
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var data = xhr.responseText;
-				var json = eval(data);
-				if (json == '1') {
-					document.getElementById("check").style.display="block";
-				}else{
-					document.getElementById("check").style.display="none";
-				}
-			}
-		}
-		
-		function pwCheck(){
-			var pw = document.getElementById("blog_pw").value;
-			var repw = document.getElementById("blog_rpw").value;
-			if( pw ==''||repw=='')return;
-			if(pw!=repw){
-				document.getElementById("check2").style.display="block";
-			}else{
-				document.getElementById("check2").style.display="none";
-			}
-		}	
-		
-		
-		function send(f){
-			var name = f.blog_name.value;
-			var email = f.blog_email.value;
-			var id = f.blog_id.value;
-			var pw = f.blog_pw.value;
-			var rpw = f.blog_rpw.value;
-			if(name==""){
-				alert("이름을 입력해주세요.");
-				f.blog_name.focus();
-				return;
-			}
-			if(email==""){
-				alert("이메일을 입력해주세요.");
-				f.blog_email.focus();
-				return;
-			}
-			if(id==""){
-				alert("아이디를 입력해주세요.");
-				f.blog_id.focus();
-				return;
-			}
-			if(pw==""){
-				alert("비밀번호를 입력해주세요.");
-				f.blog_pw.focus();
-				return;
-			}
-			if(rpw=""){
-				alert("비밀번호 확인을 입력해주세요.");
-				f.blog_rpw.focus();
-				return;
-			}
-			
-			confirm("가입하시겠습니까?");
-			f.action="memberSend.do";
-			f.submit();
-		}
-  </script>	
-
 </head>
 
 <body>
   <jsp:include page="menu.jsp"/>
   
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/contact-bg.jpg')">
+  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/pageimg2.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -127,9 +51,6 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
         <form name="signupForm" id="signupForm" method="POST">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">

@@ -28,12 +28,15 @@ public class MenuController {
 		this.member_dao = member_dao;
 	}
 	
+	//홈페이지 이동
 	@RequestMapping(value = "/home.do")
 	public String main() {
 		
 		return VIEW_PATH+"home.jsp";
 		
 	}
+	
+	//작성페이지 이동
 	@RequestMapping(value = "/write.do")
 	public String about() {
 		
@@ -41,7 +44,7 @@ public class MenuController {
 		
 	}
 	
-	
+	//회원가입페이지 이동
 	@RequestMapping(value = "/signup.do")
 	public String contact() {
 		
@@ -49,36 +52,39 @@ public class MenuController {
 		
 	}
 	
+	//로그인페이지 이동
 	@RequestMapping(value = "/login.do")
 	public String login() {
 		
 		return VIEW_PATH+"login.jsp";
 	}
 	
+	//로그아웃(세션값 제거)
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return VIEW_PATH+"main.jsp";
+		return VIEW_PATH+"home.jsp";
 	}
 	
-	
+	//로그인
 	@RequestMapping(value = "/loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute MemberVO vo,HttpSession session){
 		boolean result = member_dao.loginCheck(vo);
 		ModelAndView mav = new ModelAndView();
 		if(result) {
-			mav.setViewName("/WEB-INF/views/blog/main.jsp");
+			mav.setViewName("/WEB-INF/views/quiz/home.jsp");
 			mav.addObject("msg","success");
 			session.setAttribute("userId",vo.getBlog_id());
 			session.setAttribute("userName",vo.getBlog_name());
 		} else {
-			mav.setViewName("/WEB-INF/views/blog/login.jsp");
+			mav.setViewName("/WEB-INF/views/quiz/login.jsp");
 			mav.addObject("msg","failure");
 		}
 		return mav;
 		
 	}
 	
+	//아이디 중복체크
 	@RequestMapping(value = "/idCheck.do")
 	@ResponseBody
 	public String idCheck(@RequestParam String blog_id) {
@@ -88,11 +94,12 @@ public class MenuController {
 		return idCheck; 
 	}
 	
+	//회원가입
 	@RequestMapping(value = "/memberSend.do")
 	public String memberSend(@ModelAttribute MemberVO vo){
 		member_dao.insertMember(vo);
 		member_dao.insertRank(vo.getBlog_id());
-		return VIEW_PATH+"main.jsp";
+		return VIEW_PATH+"home.jsp";
 		
 	}
 	

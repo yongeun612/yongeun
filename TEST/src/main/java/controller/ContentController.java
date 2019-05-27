@@ -29,6 +29,7 @@ public class ContentController {
 		this.board_dao = board_dao;
 	}
 	
+	//게시글 작성
 	@RequestMapping(value = "/boardWrite.do")
 	public String boardWrite(@ModelAttribute BoardVO vo){
 		
@@ -36,7 +37,8 @@ public class ContentController {
 		
 		return "boardList.do";
 	}
-		
+	
+	//해당 글 이동
 	@RequestMapping(value = "/boardView.do")
 	public String boardView(String board_title,Model model){
 		
@@ -47,6 +49,7 @@ public class ContentController {
 		return VIEW_PATH+"boardView.jsp";
 	}
 	
+	//게시글 목록
 	@RequestMapping(value = "boardList.do")
 	public ModelAndView BoardPage(@RequestParam(defaultValue="board_title") String searchOption,
 							@RequestParam(defaultValue="") String keyword,

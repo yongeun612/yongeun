@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>YongEun Blog</title>
+  <title>Board</title>
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,17 +28,14 @@
 <body>
   <jsp:include page="menu.jsp"/>
     <!-- Page Header -->
-  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/post-bg.jpg')">
+  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/pageimg7.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>Man must explore, and this is exploration at its greatest</h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-            <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2019</span>
+          <div class="site-heading">
+            <h1>Free board</h1>
+            <span class="subheading">Fill it out as much as you want.</span>
           </div>
         </div>
       </div>

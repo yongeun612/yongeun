@@ -7,7 +7,8 @@
 <html>
 
 <head>
-
+  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+  <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>Login</title>
@@ -15,27 +16,7 @@
   <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/loginstyle.css" media="screen" type="text/css" />
   
-<script>
-function send(f) {
-	var userId = f.blog_id.value.trim();
-	var userPw = f.blog_pw.value.trim();
-	if(userId == ""){
-		alert("아이디를 입력하세요.");
-		f.blog_id.focus();
-		return;
-	}
-	if(userPw == ""){
-		alert("패스워드를 입력하세요.");
-		f.blog_pw.focus();
-		return;
-	}
-	f.action="loginCheck.do";
-	f.submit();
-	
-}
 
-
-</script>
 </head>
 
 <body>
@@ -53,12 +34,12 @@ function send(f) {
   </form>
 
   <div class="login-help">
-    <a href="signup.do">Sign up</a> • <a href="#">Forgot Password</a>
+    <a href="signup.do">Sign up</a> • <a href="home.do">home</a>
   </div>
 </div>
 
 
-  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+  
 
 </body>
 

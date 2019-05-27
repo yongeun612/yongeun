@@ -1,9 +1,10 @@
 package vo;
 
 public class OxQuizVO {
-	private int oxquiz_idx;
-	private String oxquiz_question;
-	private String oxquiz_answer;
+	private int oxquiz_idx; //OX퀴즈 인덱스
+	private String oxquiz_question; //OX퀴즈 제목
+	private String oxquiz_answer; //OX퀴즈 정답
+	
 	public int getOxquiz_idx() {
 		return oxquiz_idx;
 	}

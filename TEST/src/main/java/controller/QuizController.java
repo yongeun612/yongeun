@@ -30,7 +30,7 @@ public class QuizController {
 		this.quiz_dao = quiz_dao;
 	}
 	
-	
+	//선택형 퀴즈실행
 	@RequestMapping(value ="/selectQuiz.do")
 	public String selectQuiz(Model model,@RequestParam(defaultValue="1") int quizNum,HttpServletRequest request,@RequestParam(defaultValue="0")int highScore) {
 	
@@ -43,15 +43,12 @@ public class QuizController {
 	if(highScore==0) {
 		highScore=quizRank.getRank_select_score();
 	}
-	
-	System.out.println(quizNum);
 	if(highScore<(quizNum-1)) {
 			highScore=quizNum-1;
 			quizRank.setRank_select_score((quizNum-1));
 			quiz_dao.selScoreUpdate(quizRank);
 			System.out.println("good");
 	}
-	System.out.println(highScore);
 	List<QuizRankVO> rank = quiz_dao.rankList();
 	QuizVO quiz= quiz_dao.quizList(quizNum);
 	model.addAttribute("quizNum",quizNum);
@@ -62,6 +59,7 @@ public class QuizController {
 	return VIEW_PATH+"quiz.jsp";
 	}
 	
+	//ox 퀴즈실행
 	@RequestMapping(value ="/oxQuiz.do")
 	public String OxQuiz(Model model,@RequestParam(defaultValue="1") int quizNum,HttpServletRequest request,@RequestParam(defaultValue="0")int highScore) {
 		
@@ -75,14 +73,12 @@ public class QuizController {
 			highScore=quizRank.getRank_ox_score();
 		}
 		
-		System.out.println(quizNum);
 		if(highScore<(quizNum-1)) {
 			highScore=quizNum-1;
 			quizRank.setRank_ox_score((quizNum-1));
 			quiz_dao.oxScoreUpdate(quizRank);
 			System.out.println("good");
 		}
-		System.out.println(highScore);
 		List<QuizRankVO> rank = quiz_dao.oxRankList();
 		OxQuizVO quiz= quiz_dao.oxQuizList(quizNum);
 		model.addAttribute("quizNum",quizNum);

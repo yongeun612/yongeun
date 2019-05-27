@@ -5,16 +5,7 @@
 <html>
 
 <head>
-  <script>
-  function list(quiz){
-	  var userId = document.getElementById("user").value;
-	  if(userId==""){
-		alert("로그인이 필요한 기능입니다.");
-		return;
-	}
-	location.href="${path}/app/"+quiz+".do";
-	}
-  </script>	
+  <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -39,7 +30,7 @@
   <jsp:include page="menu.jsp"/>
   
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/contact-bg.jpg')">
+  <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/pageimg5.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">

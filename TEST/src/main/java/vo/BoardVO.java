@@ -1,12 +1,12 @@
 package vo;
 
 public class BoardVO {
-	private int board_idx;
-	private int board_cnt;
-	private String board_title;
-	private String board_content;
-	private String board_writer;
-	private String board_date;
+	private int board_idx; //게시글 인덱스
+	private int board_cnt; //조회수
+	private String board_title; //제목
+	private String board_content; //내용
+	private String board_writer; //작성자
+	private String board_date; //작성일자
 	
 	
 	public int getBoard_idx() {

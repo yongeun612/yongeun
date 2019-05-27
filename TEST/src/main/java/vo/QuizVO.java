@@ -2,13 +2,13 @@ package vo;
 
 public class QuizVO {
 	
-	private int quiz_idx;
-	private String quiz_question;
-	private String quiz_answer;
-	private String quiz_btn1;
-	private String quiz_btn2;
-	private String quiz_btn3;
-	private String quiz_btn4;
+	private int quiz_idx; //퀴즈 인덱스
+	private String quiz_question; //퀴즈 문제
+	private String quiz_answer; //퀴즈 정답
+	private String quiz_btn1; // 답안 1
+	private String quiz_btn2; // 답안 2
+	private String quiz_btn3; // 답안 3
+	private String quiz_btn4; // 답안 4
 	
 	
 	

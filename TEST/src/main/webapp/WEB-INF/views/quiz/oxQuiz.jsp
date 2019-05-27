@@ -7,40 +7,14 @@
 <html >
 
 <head>
-  <script>
-  function send(quiz_check){
-  	var quiz_answer = document.getElementById("quizAnswer").value;
-  	var quizNum = Number(document.getElementById("quizNum").value);
-  	var highScore = Number(document.getElementById("highScore").value);
-  	var life = Number(document.getElementById("life").value);  
-  	
-  	if(quiz_check == quiz_answer){
-  		alert("정답입니다.");
-  		if(20>quizNum){
-  			quizNum=quizNum+1;
-  			location.href="${path}/app/oxQuiz.do?quizNum="+quizNum+"&highScore="+highScore;
-  		
-  		}
-  	}
-  	else {
-  		document.getElementById("life"+life).style.display = "none";
-  		life=life-1;
-  		document.getElementById("life").value = life;
-  		alert("오답입니다!");
-  	}
-  	if(life==0){
-  		location.href="${path}/app/boardList.do";
-  	}
-  }
-  
-  </script>
+  <script src="${pageContext.request.contextPath}/resources/js/oxQuiz.js"></script>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>YongEun Blog</title>
+  <title>OX Quiz</title>
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -66,8 +40,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>YongEun's Blog</h1>
-            <span class="subheading">Junior Web Developer</span>
+            <h1>OX Quiz</h1>
           </div>
         </div>
       </div>
