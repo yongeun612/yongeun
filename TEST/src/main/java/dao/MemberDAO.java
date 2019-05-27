@@ -40,6 +40,11 @@ public class MemberDAO {
       sqlSession.insert("member.insertMember",vo);		
 	}
 
+
+	public void insertRank(String id) {
+	  sqlSession.insert("member.insertRank",id);
+	}
+
 	
 
 }

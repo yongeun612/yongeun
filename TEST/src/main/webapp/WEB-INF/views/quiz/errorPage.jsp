@@ -14,6 +14,6 @@
   <c:if test="${requestScope['javax.servlet.error.status_code'] == 500}">
     <p>500(내부 서버 오류): 서버에 오류가 발생하여 요청을 수행할 수 없습니다.</p>
   </c:if>
-  <a href="main.do">돌아가기</a>
+  <a href="${path}/app/home.do">돌아가기</a>
 </body>
 </html>

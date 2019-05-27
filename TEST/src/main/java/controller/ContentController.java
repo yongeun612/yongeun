@@ -14,13 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 import dao.BoardDAO;
 import other.BoardPager;
 import vo.BoardVO;
-import vo.MemberVO;
 
 @Controller
 public class ContentController {
 
 	BoardDAO board_dao;
-	public static final String VIEW_PATH = "/WEB-INF/views/blog/";
+	public static final String VIEW_PATH = "/WEB-INF/views/quiz/";
 	
 	public ContentController() {
 		

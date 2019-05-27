@@ -8,17 +8,17 @@
 
 <head>
   <script>
-  function send(){
-	var quiz_check = document.querySelector('input[name="quiz_check"]:checked').value;
+  function send(quiz_check){
   	var quiz_answer = document.getElementById("quizAnswer").value;
   	var quizNum = Number(document.getElementById("quizNum").value);
+  	var highScore = Number(document.getElementById("highScore").value);
   	var life = Number(document.getElementById("life").value);  
   	
   	if(quiz_check == quiz_answer){
   		alert("정답입니다.");
   		if(20>quizNum){
   			quizNum=quizNum+1;
-  			location.href="${path}/app/quizList.do?quizNum="+quizNum;
+  			location.href="${path}/app/oxQuiz.do?quizNum="+quizNum+"&highScore="+highScore;
   		
   		}
   	}
@@ -73,52 +73,82 @@
       </div>
     </div>
   </header>
-
+  
   <!-- Main Content -->
+  <div style="float:right;background-image: URL('${pageContext.request.contextPath}/resources/img/quiz-rank.jpg'); width: 400px ; height:450px ; background-repeat: no-repeat; background-size: 200px 450px;">
+  <table style="width: 200px ; height:450px ; font-weight: bold;  text-align: center;">
+  <tr>
+	  <td>
+	  </td>
+	  <td>
+	  	순위
+	  </td>
+	  <td>
+	  </td>
+  </tr>
+  <c:forEach var="rank" items="${rank}"  begin="0" end="9">
+  <tr>
+	  <td style="text-align: right;">
+	  ${rank.rankNum}.
+	  </td>
+	  <td> 
+	  ${rank.rank_user}
+	  </td>
+	  <td>
+	  ${rank.rank_ox_score}
+	  </td>
+  </tr> 
+  </c:forEach>
+  
+  </table>
+  
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-      	<table class="table" border="1">
+      <div style="background-image: URL('${pageContext.request.contextPath}/resources/img/quiz-board.jpg'); background-size: contain; width: 700px ; height:450px ; background-repeat: no-repeat; background-position: center; background-size: 700px 450px; margin-left: auto; margin-right: auto;">
+      	<table style="border:hidden;margin-left: auto; margin-right: auto; width: 600px ; height:400px ; color:white; font-weight: bold;" >
 					<tr>
-						<td> 목숨:<img id=life1 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
-							<img id=life2 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
-							<img id=life3 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
-							<p id="text_box">${quiz.quiz_idx}번 문제</p><br>
-							<p>답 : ${quiz.quiz_answer}</p>
-							
-							
-						</td>
-					</tr>
-					
-					<tr>
-						<td>1.<input type="radio" name=quiz_check value="${quiz.quiz_btn1}">${quiz.quiz_btn1}
+						<td style="text-align: center;">
+							<p id="text_box">${quiz.oxquiz_idx}번 문제</p>
 						</td>
 					</tr>
 					<tr>
-						<td>2.<input type="radio" name=quiz_check value="${quiz.quiz_btn2}">${quiz.quiz_btn2}
-						</td>
+					<td>
+					 <p>${quiz.oxquiz_question}</p>
+					</td>
 					</tr>
 					<tr>
-						<td>3.<input type="radio" name=quiz_check value="${quiz.quiz_btn3}">${quiz.quiz_btn3}
-						</td>
-					</tr>
-					<tr>
-						<td>4.<input type="radio" name=quiz_check value="${quiz.quiz_btn4}">${quiz.quiz_btn4}
+						<td>
+						<a href="javascript:send('O')"  style="color: white;font-weight: bold;">1. O</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<br>
+						<a href="javascript:send('X')"  style="color: white;font-weight: bold;">2. X</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div style="float:left">	
+						 	Life :<img id=life1 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
+							<img id=life2 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
+							<img id=life3 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">	
+							</div>
 							
-							<input type="button" value="확인" onclick="send();">
-							<input type="button" value="취소" onclick="goback();">
+							<div style="float:right" >
+							<a href="${path}/app/home.do"><img src="${pageContext.request.contextPath}/resources/img/quiz-home.jpg" width="70" height="70"/> </a>
+															
+							</div>
+							
+							<input type="hidden" id="highScore" name="highScore" value="${highScore}">
 							<input type="hidden" id="quizNum" name="quizNum" value="${quizNum}">
-							<input type="hidden" id="quizAnswer" name="quizAnswer" value="${quiz.quiz_answer}">
+							<input type="hidden" id="quizAnswer" name="quizAnswer" value="${quiz.oxquiz_answer}">
 							<input type="hidden" id="life" name="life" value="${life}">
 						</td>
 					</tr>
 				</table>
-      
+      		</div>
         </div>
       </div>
     </div>

@@ -3,8 +3,6 @@ package vo;
 public class QuizVO {
 	
 	private int quiz_idx;
-	private int quiz_try;
-	private int quiz_correct;
 	private String quiz_question;
 	private String quiz_answer;
 	private String quiz_btn1;
@@ -55,18 +53,6 @@ public class QuizVO {
 	}
 	public void setQuiz_btn4(String quiz_btn4) {
 		this.quiz_btn4 = quiz_btn4;
-	}
-	public int getQuiz_try() {
-		return quiz_try;
-	}
-	public void setQuiz_try(int quiz_try) {
-		this.quiz_try = quiz_try;
-	}
-	public int getQuiz_correct() {
-		return quiz_correct;
-	}
-	public void setQuiz_correct(int quiz_correct) {
-		this.quiz_correct = quiz_correct;
 	}
 	
 	

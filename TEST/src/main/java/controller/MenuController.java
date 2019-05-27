@@ -1,14 +1,9 @@
 package controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +16,7 @@ import vo.MemberVO;
 @Controller
 public class MenuController {
 	
-	public static final String VIEW_PATH = "/WEB-INF/views/blog/";
+	public static final String VIEW_PATH = "/WEB-INF/views/quiz/";
 	MemberDAO member_dao;
 	
 	public MenuController() { 
@@ -33,26 +28,19 @@ public class MenuController {
 		this.member_dao = member_dao;
 	}
 	
-	@RequestMapping(value = "/main.do")
+	@RequestMapping(value = "/home.do")
 	public String main() {
 		
-		return VIEW_PATH+"Test.jsp";
+		return VIEW_PATH+"home.jsp";
 		
 	}
-	//페이지 이동
-	@RequestMapping(value = "/about.do")
+	@RequestMapping(value = "/write.do")
 	public String about() {
 		
 		return VIEW_PATH+"write.jsp";
 		
 	}
 	
-	@RequestMapping(value = "/post.do")
-	public String post() {
-		
-		return VIEW_PATH+"post.jsp";
-		
-	}
 	
 	@RequestMapping(value = "/signup.do")
 	public String contact() {
@@ -102,9 +90,8 @@ public class MenuController {
 	
 	@RequestMapping(value = "/memberSend.do")
 	public String memberSend(@ModelAttribute MemberVO vo){
-		System.out.println(vo.getBlog_id());
 		member_dao.insertMember(vo);
-		
+		member_dao.insertRank(vo.getBlog_id());
 		return VIEW_PATH+"main.jsp";
 		
 	}

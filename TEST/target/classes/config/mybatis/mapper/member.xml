@@ -15,12 +15,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertMember" parameterType="vo.MemberVO" useGeneratedKeys="false">
-	insert into blog values(seq_blog_idx.nextval,
-		#{blog_name},
-		#{blog_id},
-		#{blog_pw},
-		#{blog_email}
-		)
+		INSERT INTO blog VALUES(seq_blog_idx.nextval,
+			#{blog_name},
+			#{blog_id},
+			#{blog_pw},
+			#{blog_email}
+			)
+	</insert>
+	
+	<insert id="insertRank" useGeneratedKeys="false">
+		 INSERT INTO quizrank VALUES(seq_rank_idx.nextval,#{id},0,0)
 	</insert>
 </mapper>
 

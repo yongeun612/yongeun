@@ -5,9 +5,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="quiz">
 
 	<select id="listAll" resultType="vo.QuizVO">
-	Select * from Quiz
+		SELECT * FROM Quiz
 	</select>
 	
 	<select id="quizList" resultType="vo.QuizVO">
-	select * from quiz where quiz_idx=#{quizNum}</select>
+		SELECT * FROM quiz 
+		WHERE quiz_idx=#{quizNum}
+	</select>
+	
+	<select id="oxQuizList" resultType="vo.OxQuizVO">
+		SELECT * FROM oxquiz 
+		WHERE oxquiz_idx=#{quizNum}
+	</select>
+	
+	<select id="rankList" resultType="vo.QuizRankVO">
+		SELECT rank_user,rank_select_score,RANK() OVER(ORDER BY rank_select_score DESC) AS rankNum FROM quizrank
+	</select>
+	
+	<select id="oxRankList" resultType="vo.QuizRankVO">
+		SELECT rank_user,rank_ox_score,RANK() OVER(ORDER BY rank_ox_score DESC) AS rankNum FROM quizrank
+	</select>
+	
+	<select id="scoreCheck" resultType="vo.QuizRankVO">
+		SELECT * FROM quizrank 
+		WHERE rank_user=#{userId}
+	</select>
+	
+	<update id="selScoreUpdate" parameterType="vo.QuizRankVO">
+		UPDATE  quizrank SET rank_select_score=#{rank_select_score} 
+		WHERE rank_user=#{rank_user}
+	</update>
+	
+	<update id="oxScoreUpdate" parameterType="vo.QuizRankVO">
+		UPDATE  quizrank SET rank_ox_score=#{rank_ox_score} 
+		WHERE rank_user=#{rank_user}
+	</update>
+	
 </mapper>

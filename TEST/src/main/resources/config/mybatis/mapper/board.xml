@@ -5,54 +5,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="board">
 
 	<insert id="insertBoard" parameterType="vo.BoardVO" useGeneratedKeys="false">
-	insert into board values(seq_board_idx.nextval,
-		#{board_title},
-		#{board_content},
-		#{board_writer},
-		sysdate,
-		0)
+		INSERT INTO board VALUES(seq_board_idx.nextval,
+			#{board_title},
+			#{board_content},
+			#{board_writer},
+			sysdate,
+			0)
 	</insert>
 
 	<select id="boardCount" resultType="int">
-		select count(*) from board
+		SELECT count(*) FROM board
 	</select>	
 	
 	<select id="boardView" resultType="vo.BoardVO">
-		select * from board where board_title=#{board_title}
+		SELECT * FROM board 
+		WHERE board_title=#{board_title}
 	</select>
 	
 	<update id="boardClick">
-		update board set board_cnt = board_cnt+1 where board_title=#{board_title}
+		UPDATE board SET board_cnt = board_cnt+1 
+		WHERE board_title=#{board_title}
 	</update>
 	
 	<select id="listAll" resultType="vo.BoardVO">
 		<include refid="pagingHeader"></include>
-		select board_idx,board_title,board_writer,board_date,board_cnt from board
+			SELECT board_idx,board_title,board_writer,board_date,board_cnt FROM board
 		<include refid="search"></include>
-		order by board_idx desc, board_date desc
+			ORDER BY board_idx DESC, board_date DESC
 		<include refid="pagingFooter"></include>
 	</select>
 	
 	<sql id="search">
 		<choose>
 			<when test="searchOption == 'all'">
-				where (board_title like '%'||#{keyword}||'%'
-					  OR board_content like '%'||#{keyword}||'%'
-					  OR board_writer like '%'||#{keyword}||'%')
+				WHERE (board_title LIKE '%'||#{keyword}||'%'
+					  OR board_content LIKE '%'||#{keyword}||'%'
+					  OR board_writer LIKE '%'||#{keyword}||'%')
 			</when>
 		
 			<otherwise>
-				where ${searchOption} like '%'||#{keyword}||'%'
+				WHERE ${searchOption} LIKE '%'||#{keyword}||'%'
 			</otherwise>
 		</choose>
 	</sql>
 	
 	<sql id="pagingHeader">
-		select * from(
-			select rownum as rn, A.* from (
+		SELECT * FROM(
+			SELECT rownum AS rn, A.* FROM (
 	</sql>
+	
 	<sql id="pagingFooter">
 			) A
-		) where rn between #{start} and #{end}
+		) WHERE rn BETWEEN #{start} AND #{end}
 	</sql>
 </mapper>

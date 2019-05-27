@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>YongEun Blog</title>
+  <title>Free board</title>
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -45,8 +45,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>YongEun's Blog</h1>
-            <span class="subheading">Junior Web Developer</span>
+            <h1>Free board</h1>
+            <span class="subheading">Fill it out as much as you want.</span>
           </div>
         </div>
       </div>
@@ -115,7 +115,10 @@
   		<option value="board_content" <c:out value="${map.searchOption == 'board_content'?'selected':''}"/> >내용</option>
   	</select>
   	<input name="keyword" value="${map.keyword}">
-  	<input type="submit" value="조회">
+  	<input type="submit" class="btn btn-sm btn-primary" value="조회">
+  	<c:if test="${sessionScope.userId != null }">
+  	<button type="button" class="btn btn-sm btn-primary" id="writebtn" onclick="location.href='write.do'">작성</button>
+  	</c:if>
   </form>
         </div>
       </div>
