@@ -8,7 +8,7 @@
 
 <head>
   <script src="${pageContext.request.contextPath}/resources/js/oxQuiz.js"></script>
-
+	
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -26,7 +26,7 @@
 
   <!-- Custom styles for this template -->
   <link href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font.css">
 </head>
 
 <body>

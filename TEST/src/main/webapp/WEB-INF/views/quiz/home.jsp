@@ -48,9 +48,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-       <a href="javascript:list('selectQuiz')"><img src="${pageContext.request.contextPath}/resources/img/cabin.jpg" style="float:left; width:350px; height:300px;"/> </a>
-       <a href="javascript:list('oxQuiz')"><img src="${pageContext.request.contextPath}/resources/img/cake.jpg" style="float:right; width:350px; height:300px;"/> </a>
-      
+      <div style="margin-left: auto; margin-right: auto; display: block;">
+       <a href="javascript:list('selectQuiz')"><img src="${pageContext.request.contextPath}/resources/img/cabin.jpg" style="width:320px; height:280px;"/></a>
+       <a href="javascript:list('oxQuiz')"><img src="${pageContext.request.contextPath}/resources/img/cake.jpg" style=" width:320px; height:280px;"/></a>
+      </div>
       <input type="hidden" id="user" name="user" value="${sessionScope.userId}">
       
       </div>

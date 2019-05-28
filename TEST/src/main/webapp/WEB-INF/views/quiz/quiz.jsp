@@ -25,7 +25,7 @@
 
   <!-- Custom styles for this template -->
   <link href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font.css">
 </head>
 
 <body>
@@ -77,7 +77,6 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
       <div style="background-image: URL('${pageContext.request.contextPath}/resources/img/quiz-board.jpg'); background-size: contain; width: 700px ; height:450px ; background-repeat: no-repeat; background-position: center; background-size: 700px 450px; margin-left: auto; margin-right: auto;">
       	<table style="border:hidden;margin-left: auto; margin-right: auto; width: 600px ; height:400px ; color:white; font-weight: bold;" >
 					<tr>
