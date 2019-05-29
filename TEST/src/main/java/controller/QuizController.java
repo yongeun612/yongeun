@@ -47,7 +47,6 @@ public class QuizController {
 			highScore=quizNum-1;
 			quizRank.setRank_select_score((quizNum-1));
 			quiz_dao.selScoreUpdate(quizRank);
-			System.out.println("good");
 	}
 	List<QuizRankVO> rank = quiz_dao.rankList();
 	QuizVO quiz= quiz_dao.quizList(quizNum);
@@ -77,13 +76,12 @@ public class QuizController {
 			highScore=quizNum-1;
 			quizRank.setRank_ox_score((quizNum-1));
 			quiz_dao.oxScoreUpdate(quizRank);
-			System.out.println("good");
 		}
 		List<QuizRankVO> rank = quiz_dao.oxRankList();
 		OxQuizVO quiz= quiz_dao.oxQuizList(quizNum);
 		model.addAttribute("quizNum",quizNum);
 		model.addAttribute("quiz",quiz);
-		model.addAttribute("life",3);
+		model.addAttribute("life",1);
 		model.addAttribute("rank",rank);
 		model.addAttribute("highcore",highScore);
 		return VIEW_PATH+"oxQuiz.jsp";

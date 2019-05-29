@@ -105,8 +105,6 @@
 						<td>
 							<div style="float:left">	
 						 	Life :<img id=life1 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
-							<img id=life2 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">
-							<img id=life3 src="${pageContext.request.contextPath}/resources/img/quiz-life.jpg" alt="none img" width="50" height="50">	
 							</div>
 							
 							<div style="float:right" >

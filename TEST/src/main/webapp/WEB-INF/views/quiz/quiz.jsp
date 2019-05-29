@@ -7,7 +7,8 @@
 <html >
 
 <head>
-  <script src="${pageContext.request.contextPath}/resources/js/quiz.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/quiz.js?ver=1"></script>
+  
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -135,7 +136,6 @@
       		</div>
         </div>
       </div>
-    </div>
   <hr>
 
   <!-- Footer -->

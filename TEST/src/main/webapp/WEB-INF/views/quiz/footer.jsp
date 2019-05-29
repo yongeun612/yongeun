@@ -36,7 +36,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted"> &copy;2019 YongEun </p>
+          <p class="copyright text-muted"> &copy;2019 yongeun </p>
         </div>
       </div>
     </div>

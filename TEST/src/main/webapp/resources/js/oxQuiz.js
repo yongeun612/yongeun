@@ -8,7 +8,7 @@ function send(quiz_check){
   		alert("정답입니다.");
   		if(20>quizNum){
   			quizNum=quizNum+1;
-  			location.href="${path}/app/oxQuiz.do?quizNum="+quizNum+"&highScore="+highScore;
+  			location.href="oxQuiz.do?quizNum="+quizNum+"&highScore="+highScore;
   		
   		}
   	}
@@ -16,11 +16,11 @@ function send(quiz_check){
   		document.getElementById("life"+life).style.display = "none";
   		life=life-1;
   		document.getElementById("life").value = life;
-  		alert("오답입니다!");
+  		alert("오답입니다.");
   	}
   	
   	if(life==0){
-  		location.href="${path}/app/home.do";
+  		location.href="home.do";
   	}
   	
   }
