@@ -7,13 +7,17 @@
 <html>
 
 <head>
-  <script src="${pageContext.request.contextPath}/resources/js/board.js"></script>
-
+  <script>
+	  function list(page){
+			location.href="boardList.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
+		}
+  </script>
+  
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+	
   <title>Free board</title>
 
   <!-- Bootstrap core CSS -->
@@ -73,14 +77,13 @@
         <div class="clearfix">
 	        <tr>
 			  	<td colspan="5">
-					<c:if test="${map.boardPager.curBlock > 1}">
+					<c:if test="${map.boardPager.curBlock >= 1}">
 						<a href="javascript:list('1')">[처음]</a>
 					</c:if>
 			  		
 			  		<c:if test="${map.boardPager.curBlock > 1 }">
 			  			<a href="javascript:list('${map.boardPager.prevPage}')">[이전]</a>
 			  		</c:if>
-			  		
 			  		<c:forEach var="num" begin="${map.boardPager.blockBegin}" end="${map.boardPager.blockEnd}">
 			  			<c:choose>
 			  				<c:when test="${num == map.boardPager.curPage }">
@@ -104,7 +107,7 @@
   
   <form name="searchForm" method="post" action="${path}/app/boardList.do">
   	<select name="searchOption">
-  		<option value="all" <c:out value="${map.searchOption == 'all'?'selected':''}"/> >제목+이름+제목</option>
+  		<option value="all" <c:out value="${map.searchOption == 'all'?'selected':''}"/> >제목+이름+내용</option>
   		<option value="board_title" <c:out value="${map.searchOption == 'board_title'?'selected':''}"/> >제목</option>
   		<option value="board_writer" <c:out value="${map.searchOption == 'board_writer'?'selected':''}"/> >작성자</option>
   		<option value="board_content" <c:out value="${map.searchOption == 'board_content'?'selected':''}"/> >내용</option>
@@ -127,4 +130,5 @@
   
   <jsp:include page="footer.jsp"/>
  </body>
+ 
 </html>

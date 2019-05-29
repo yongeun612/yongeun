@@ -51,7 +51,8 @@ public class ContentController {
 	
 	//게시글 목록
 	@RequestMapping(value = "boardList.do")
-	public ModelAndView BoardPage(@RequestParam(defaultValue="board_title") String searchOption,
+	public ModelAndView BoardPage(@RequestParam(defaultValue="board_title")
+													  String searchOption,
 							@RequestParam(defaultValue="") String keyword,
 							@RequestParam(defaultValue="1") int curPage) {
 	int count = board_dao.countPage(searchOption,keyword);
