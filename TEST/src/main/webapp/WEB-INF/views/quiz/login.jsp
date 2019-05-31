@@ -26,7 +26,7 @@
   <form name="loginForm" method="POST">
     <input type="text" name="blog_id"  id="blog_id" placeholder="Username">
     <input type="password" name="blog_pw" id="blog_pw" placeholder="Password">
-    <input type="button" name="btnlogin" id="btnlogin" class="login login-submit" value="login" onclick="send(this.form);">
+    <input type="submit" name="btnlogin" id="btnlogin" class="login login-submit" value="login" onclick="send(this.form);">
   	
   	<c:if test="${msg == 'failure'}">
   		<div style="color: red"> <h5>아이디 또는 비밀번호가 일치하지 않습니다.</h5></div>
