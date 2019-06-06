@@ -7,7 +7,7 @@
 
 
 <head>
-  <script src="${pageContext.request.contextPath}/resources/js/write.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/fix.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,7 +17,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -50,19 +50,20 @@
 		<div class="container" role="main">
 			<form name="form" id="form" role="form" method="post" >
 				<div class="mb-3">
+					<input type="hidden" id="board_idx" name="board_idx" value="${board.board_idx}">
 					<label for="title">제목</label>
-					<input type="text" class="form-control" name="board_title" id="board_title" placeholder="제목을 입력해 주세요" style="width:700px;">
+					<input type="text" class="form-control" name="board_title" id="board_title" value="${board.board_title}" style="width:700px;"/>
 				</div>
 				<div class="mb-3">
 					<label for="reg_id">작성자</label>
-					<input type="text" class="form-control" name="board_writer" id="board_writer" readonly value="${sessionScope.userId}" style="width:700px;">
+					<input type="text" class="form-control" name="board_writer" id="board_writer" readonly value="${board.board_writer }" style="width:700px;"/>
 				</div>
 				<div class="mb-3">
 					<label for="content">내용</label>
-					<textarea class="form-control" rows="5" name="board_content" id="board_content" placeholder="내용을 입력해 주세요"style="width:700px;" ></textarea>
+					<input type="text" class="form-control" name="board_content" id="board_content" value="${board.board_content}" style="width:700px; height:200px; word-wrap: break-word;" />
 				</div>
 			<div>
-				<button type="button" class="btn btn-sm btn-primary" id="btnSave" onclick="send(this.form);">저장</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnSave" onclick="fix(this.form);">수정</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='boardList.do'">목록</button>
 			</div>
 			</form>
@@ -71,6 +72,4 @@
 	<hr>
  <jsp:include page="footer.jsp"/>
 </body>
- 
-
 </html>

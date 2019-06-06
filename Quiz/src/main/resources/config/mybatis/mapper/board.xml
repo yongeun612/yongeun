@@ -12,6 +12,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			sysdate,
 			0)
 	</insert>
+	
+	<delete id="deleteBoard">
+		DELETE FROM board where board_idx=#{board_idx}
+	</delete>
+	
+	<update id="updateBoard" parameterType="vo.BoardVO">
+		UPDATE board SET board_title= #{board_title}, board_content = #{board_content}
+		WHERE board_idx=#{board_idx}
+	</update>
+	
+	<update id="boardClick">
+		UPDATE board SET board_cnt = board_cnt+1 
+		WHERE board_idx=#{board_idx}
+	</update>
 
 	<select id="boardCount" resultType="int">
 		SELECT count(*) FROM board
@@ -19,13 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="boardView" resultType="vo.BoardVO">
 		SELECT * FROM board 
-		WHERE board_title=#{board_title}
+		WHERE board_idx=#{board_idx}
 	</select>
 	
-	<update id="boardClick">
-		UPDATE board SET board_cnt = board_cnt+1 
-		WHERE board_title=#{board_title}
-	</update>
+	
 	
 	<select id="listAll" resultType="vo.BoardVO">
 		<include refid="pagingHeader"></include>

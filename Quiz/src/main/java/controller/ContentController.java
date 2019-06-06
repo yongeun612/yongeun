@@ -33,21 +33,47 @@ public class ContentController {
 	@RequestMapping(value = "/boardWrite.do")
 	public String boardWrite(@ModelAttribute BoardVO vo){
 		
-		board_dao.insertboard(vo);
+		board_dao.insertBoard(vo);
+		
+		return "boardList.do";
+	}
+	
+	//게시글 수정
+	@RequestMapping(value = "/boardFix.do")
+	public String boardFix(@ModelAttribute BoardVO vo){
+		System.out.println(vo.getBoard_title());
+		board_dao.updateBoard(vo);
+		
+		return "boardList.do";
+	}
+	
+	//게시글 삭제
+	@RequestMapping(value = "/boardDel.do")
+	public String boardDel(@RequestParam int board_idx){
+		board_dao.boardDelete(board_idx);
 		
 		return "boardList.do";
 	}
 	
 	//해당 글 이동
 	@RequestMapping(value = "/boardView.do")
-	public String boardView(String board_title,Model model){
-		
-		board_dao.boarClick(board_title);
-		BoardVO board = board_dao.boardView(board_title);
+	public String boardView(@RequestParam int board_idx,Model model){
+		board_dao.boardClick(board_idx);
+		BoardVO board = board_dao.boardView(board_idx);
 		model.addAttribute("board",board);
 		
 		return VIEW_PATH+"boardView.jsp";
 	}
+	
+	@RequestMapping(value = "/boardFixPage.do")
+	public String boardFixPage(@RequestParam int board_idx,Model model){
+		
+		BoardVO board = board_dao.boardView(board_idx);
+		model.addAttribute("board",board);
+		
+		return VIEW_PATH+"boardFix.jsp";
+	}
+	
 	
 	//게시글 목록
 	@RequestMapping(value = "boardList.do")

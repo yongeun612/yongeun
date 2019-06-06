@@ -4,6 +4,24 @@
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <head>
+  <script type="text/javascript">
+  	function Del(){
+  		var idx = document.getElementById("board_idx").value;
+  		var check = confirm("정말로 삭제하시겠습니까?");
+  		
+  		if(check == false){
+  			return;
+  		}
+	  		location.href="boardDel.do?board_idx="+idx;		
+  	}
+  	
+  	function Fix(){
+  		var idx = document.getElementById("board_idx").value;
+  		location.href="boardFixPage.do?board_idx="+idx;
+  	}
+  	
+  	
+  </script>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,9 +69,12 @@
           <h2 class="section-heading">${board.board_title}</h2>
 
 		  <p>${board.board_content}</p>
-
+		  <br>
 			<div>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='boardList.do'">목록</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnFix" onclick="Fix();">수정</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnDel" onclick="Del();">삭제</button>
+				<input type="hidden" id="board_idx" name="board_idx" value="${board.board_idx}">
 			</div>
         </div>
       </div>

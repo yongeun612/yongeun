@@ -84,6 +84,6 @@ public class QuizController {
 		model.addAttribute("life",1);
 		model.addAttribute("rank",rank);
 		model.addAttribute("highcore",highScore);
-		return VIEW_PATH+"oxQuiz.jsp";
+		return VIEW_PATH+"quizOX.jsp";
 	}
 }

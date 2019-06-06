@@ -15,19 +15,19 @@ public class BoardDAO {
 		this.sqlSession = sqlSession;
 	}
 
-	public void insertboard(BoardVO vo) {
+	public void insertBoard(BoardVO vo) {
 		sqlSession.insert("board.insertBoard",vo);
 		
 	}
 
 
-	public BoardVO boardView(String board_title) {
+	public BoardVO boardView(int board_idx) {
 		
-		return sqlSession.selectOne("board.boardView",board_title);
+		return sqlSession.selectOne("board.boardView",board_idx);
 	}
 
-	public void boarClick(String board_title) {
-		sqlSession.update("board.boardClick",board_title);
+	public void boardClick(int board_idx) {
+		sqlSession.update("board.boardClick",board_idx);
 	}
 
 	public int countPage(String searchOption, String keyword) {
@@ -42,5 +42,13 @@ public class BoardDAO {
 		map.put("searchOption",searchOption);
 		map.put("keyword",keyword);
 		return sqlSession.selectList("board.listAll",map);
+	}
+
+	public void updateBoard(BoardVO vo) {
+		sqlSession.update("board.updateBoard",vo);
+	}
+
+	public void boardDelete(int board_idx) {
+		sqlSession.delete("board.deleteBoard",board_idx);
 	}
 }

@@ -18,7 +18,10 @@ function send(f){
 				return;
 			}
 				
-			confirm("작성하시겠습니까?");
+			var check= confirm("작성하시겠습니까?");
+			if(check == false){
+				return;
+			}
 			f.action="boardWrite.do";
 			f.submit();
 		}

@@ -58,7 +58,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
       <c:forEach items="${map.list}" var="list">
         <div class="post-preview">
-          <a href="${path}/app/boardView.do?board_title=${list.board_title}">
+          <a href="${path}/app/boardView.do?board_idx=${list.board_idx}">
             <h2 class="post-title">
               ${list.board_title}
             </h2>
