@@ -4,8 +4,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="quiz">
 
-	<select id="listAll" resultType="vo.QuizVO">
+	<select id="quizListAll" resultType="vo.QuizVO">
 		SELECT * FROM Quiz
+	</select>
+	
+	<select id="oxQuizListAll" resultType="vo.OxQuizVO">
+		SELECT * FROM OxQuiz
 	</select>
 	
 	<select id="quizList" resultType="vo.QuizVO">
@@ -40,5 +44,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE  quizrank SET rank_ox_score=#{rank_ox_score} 
 		WHERE rank_user=#{rank_user}
 	</update>
+	
+	<update id="quizFix" parameterType="vo.QuizVO">
+		UPDATE quiz SET quiz_question=#{quiz_question},quiz_answer=#{quiz_answer},quiz_btn1=#{quiz_btn1},quiz_btn2=#{quiz_btn2},quiz_btn3=#{quiz_btn3},quiz_btn4=#{quiz_btn4}
+		WHERE quiz_idx=#{quiz_idx}
+	</update>
+	
+	<update id="oxQuizFix" parameterType="vo.OxQuizVO">
+		UPDATE oxquiz SET oxquiz_question=#{oxquiz_question},oxquiz_answer=#{oxquiz_answer}
+		WHERE oxquiz_idx=#{oxquiz_idx}
+	</update>
+	
+	<delete id="quizDel">
+		DELETE from quiz where quiz_idx=#{quiz_idx}
+	</delete>	
+	
+	<delete id="oxQuizDel">
+		DELETE from oxquiz where oxquiz_idx=#{oxquiz_idx}
+	</delete>	
 	
 </mapper>

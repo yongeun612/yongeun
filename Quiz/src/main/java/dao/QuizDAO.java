@@ -15,8 +15,12 @@ public class QuizDAO {
 			this.sqlSession = sqlSession;
 		}
 
-		public List<QuizVO> listAll() {
-			return sqlSession.selectList("quiz.listAll");
+		public List<QuizVO> quizListAll() {
+			return sqlSession.selectList("quiz.quizListAll");
+		}
+		
+		public List<OxQuizVO> oxQuizListAll() {
+			return sqlSession.selectList("quiz.oxQuizListAll");
 		}
 
 		public QuizVO quizList(int quizNum) {
@@ -46,6 +50,22 @@ public class QuizDAO {
 
 		public List<QuizRankVO> oxRankList() {
 			return sqlSession.selectList("quiz.oxRankList");
+		}
+
+		public void quizDel(int quiz_idx) {
+			sqlSession.delete("quiz.quizDel",quiz_idx);
+		}
+		
+		public void oxquizDel(int oxquiz_idx) {
+			sqlSession.delete("quiz.oxQuizDel",oxquiz_idx);
+		}
+
+		public void quizFix(QuizVO vo) {
+			sqlSession.update("quiz.quizFix",vo);
+		}
+		
+		public void oxQuizFix(OxQuizVO vo) {
+			sqlSession.update("quiz.oxQuizFix",vo);
 		}
 
 		

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import dao.QuizDAO;
 import vo.OxQuizVO;
@@ -86,4 +87,60 @@ public class QuizController {
 		model.addAttribute("highcore",highScore);
 		return VIEW_PATH+"quizOX.jsp";
 	}
+	
+	@RequestMapping(value="/quizList.do")
+	public String QuizList(Model model) {
+		List<QuizVO> quiz = quiz_dao.quizListAll();
+		
+		model.addAttribute("quiz",quiz);
+		
+		return VIEW_PATH+"quizList.jsp";
+	}
+	
+	@RequestMapping(value="/oxQuizList.do")
+	public String OxQuizList(Model model) {
+		List<OxQuizVO> oxquiz = quiz_dao.oxQuizListAll();
+		model.addAttribute("oxquiz",oxquiz);
+		return VIEW_PATH+"quizOxList.jsp";
+	}
+	
+	@RequestMapping(value="/quizFix.do")
+	public String QuizUpdate(QuizVO vo) {
+		quiz_dao.quizFix(vo);
+		return "quizList.do";
+	}
+	
+	@RequestMapping(value="/oxQuizFix.do")
+	public String OxQuizUpdate(OxQuizVO vo) {
+		quiz_dao.oxQuizFix(vo);
+		return "oxQuizList.do";
+	}
+	
+	
+	
+	@RequestMapping(value="/quizDel.do")
+	public String QuizDel(@RequestParam int quiz_idx) {
+		quiz_dao.quizDel(quiz_idx);
+		return "quizList.do";
+	}
+	
+	@RequestMapping(value="/oxQuizDel.do")
+	public String OxQuizDel(@RequestParam int oxquiz_idx) {
+		quiz_dao.oxquizDel(oxquiz_idx);
+		return "oxQuizList.do";
+	}
+	
+	@RequestMapping(value="/quizFixPage.do")
+	public String QuizFixPage(@RequestParam int quiz_idx,Model model) {
+		QuizVO quiz=quiz_dao.quizList(quiz_idx);
+		model.addAttribute("quiz",quiz);
+		return VIEW_PATH+"quizFix.jsp";
+	}
+	@RequestMapping(value="/oxQuizFixPage.do")
+	public String OxQuizFixPage(@RequestParam int oxquiz_idx,Model model) {
+		OxQuizVO oxQuiz= quiz_dao.oxQuizList(oxquiz_idx);
+		model.addAttribute("oxQuiz",oxQuiz);
+		return VIEW_PATH+"quizOxFix.jsp";
+	}
+	
 }
