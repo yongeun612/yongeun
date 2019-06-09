@@ -100,4 +100,3 @@
 <img src="Quiz/img/QuizList.jpg">
 <img src="Quiz/img/board.jpg">
 <img src="Quiz/img/signup.jpg">
-<img src="Quiz/img/signup.jpg">
