@@ -99,5 +99,4 @@
 <img src="Quiz/img/oxQuiz.jpg">
 <img src="Quiz/img/board.jpg">
 <img src="Quiz/img/signup.jpg">
-<img src="Quiz/img/login.jpg">
 
