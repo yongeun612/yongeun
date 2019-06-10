@@ -66,6 +66,13 @@ public class MenuController {
 		return VIEW_PATH+"home.jsp";
 	}
 	
+	//수정페이지 
+	@RequestMapping(value = "/fixPage.do")
+	public String fix() {
+		
+		return VIEW_PATH+"fix.jsp";
+	}
+	
 	//로그인
 	@RequestMapping(value = "/loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute MemberVO vo,HttpSession session){

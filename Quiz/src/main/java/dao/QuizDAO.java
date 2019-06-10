@@ -68,5 +68,13 @@ public class QuizDAO {
 			sqlSession.update("quiz.oxQuizFix",vo);
 		}
 
+		public void quizAdd(QuizVO vo) {
+			sqlSession.insert("quiz.quizAdd",vo);
+		}
+		
+		public void oxQuizAdd(OxQuizVO vo) {
+			sqlSession.insert("quiz.oxQuizAdd",vo);
+		}
+
 		
 }

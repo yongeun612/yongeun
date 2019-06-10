@@ -36,21 +36,26 @@
 	            <a class="nav-link" href="home.do">Quiz Home</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="boardList.do">board</a>
+	            <a class="nav-link" href="boardList.do">Board</a>
 	          </li>
 	          <c:if test="${sessionScope.userId== null}">
 		          <li class="nav-item">
-		          	<a class="nav-link" href="login.do">sign in</a>
+		          	<a class="nav-link" href="login.do">Sign in</a>
 		          </li>
 	          </c:if>
 	          <c:if test="${sessionScope.userId != null}">
 		          <li class="nav-item">
-		          	<a class="nav-link" href="logout.do">sign out</a>
+		          	<a class="nav-link" href="logout.do">Sign out</a>
 		          </li>
 	          </c:if>
 	          <li class="nav-item">
 	            <a class="nav-link" href="signup.do">Sign up</a>
 	          </li>
+	          <c:if test="${sessionScope.userId == 'yongeun612'}">
+		          <li class="nav-item">
+		          	<a class="nav-link" href="fixPage.do">Fix Page</a>
+		          </li>
+	          </c:if>
 	        </ul>
 	      </div>
 	    </div>

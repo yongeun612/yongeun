@@ -122,6 +122,9 @@
 							</div>
 							
 							<div style="float:right" >
+							<c:if test="${sessionScope.userId == 'yongeun612'}">
+								<a href="${path}/app/quizAddPage.do"><img src="${pageContext.request.contextPath}/resources/img/plus.jpg" width="50" height="50"/> </a>
+							</c:if>
 							<a href="${path}/app/home.do"><img src="${pageContext.request.contextPath}/resources/img/quiz-home.jpg" width="70" height="70"/> </a>
 															
 							</div>

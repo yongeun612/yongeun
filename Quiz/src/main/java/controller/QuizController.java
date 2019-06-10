@@ -116,6 +116,19 @@ public class QuizController {
 		return "oxQuizList.do";
 	}
 	
+	@RequestMapping(value="/quizAdd.do")
+	public String QuizAdd(QuizVO vo) {
+		quiz_dao.quizAdd(vo);
+		return "home.do";
+	}
+	
+	@RequestMapping(value="/OxQuizAdd.do")
+	public String OxQuizAdd(OxQuizVO vo) {
+		quiz_dao.oxQuizAdd(vo);
+		return "home.do";
+	}
+	
+	
 	
 	
 	@RequestMapping(value="/quizDel.do")
@@ -142,5 +155,17 @@ public class QuizController {
 		model.addAttribute("oxQuiz",oxQuiz);
 		return VIEW_PATH+"quizOxFix.jsp";
 	}
+	
+	@RequestMapping(value ="/quizAddPage.do")
+	public String quizAddPage() {
+		return VIEW_PATH+"addQuiz.jsp";
+	}
+	
+	@RequestMapping(value ="/oxQuizAddPage.do")
+	public String oxQuizAddPage() {
+		return VIEW_PATH+"addOxQuiz.jsp";
+	}
+	
+	
 	
 }

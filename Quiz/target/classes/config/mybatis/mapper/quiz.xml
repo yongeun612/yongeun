@@ -63,4 +63,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE from oxquiz where oxquiz_idx=#{oxquiz_idx}
 	</delete>	
 	
+	<insert id="quizAdd" parameterType="vo.QuizVO" useGeneratedKeys="false">
+		INSERT INTO quiz VALUES(seq_quiz_idx.nextVal,#{quiz_question},#{quiz_answer},#{quiz_btn1},#{quiz_btn2},#{quiz_btn3},#{quiz_btn4}) 
+	</insert>
+
+	<insert id="oxQuizAdd" parameterType="vo.OxQuizVO" useGeneratedKeys="false">
+		INSERT INTO oxquiz VALUES(seq_oxquiz_idx.nextVal,#{oxquiz_question},#{oxquiz_answer})
+	</insert>
+	
 </mapper>

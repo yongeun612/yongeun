@@ -5,15 +5,6 @@
 <html>
 
 <head>
-  <script type="text/javascript">
-  function fix(f){
-		var check=confirm("수정하시겠습니까?");
-		if(check == false){
-			return;
-		}
-		f.action="quizFix.do";
-		f.submit();
-	}</script>
   <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,8 +36,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Quiz Plus</h1>
-            <span class="subheading"></span>
+            <h1>Fix Page"src/main/webapp/resources/img"</h1>
+            <span class="subheading">Choose between two quizzes.</span>
           </div>
         </div>
       </div>
@@ -57,20 +48,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-    	  <div style="margin-left: auto; margin-right: auto; display: block;">
-					<form>
-					번호 : <input type="text" class="form-control" name="quiz_idx" id="quiz_idx" readOnly value="${quiz.quiz_idx}"/>
-					문제 : <input type="text" class="form-control" name="quiz_question" id="quiz_question" value="${quiz.quiz_question}"/>
-					답    : <input type="text" class="form-control" name="quiz_answer" id="quiz_answer" value="${quiz.quiz_answer}"/>
-					보기1:<input type="text" class="form-control" name="quiz_btn1" id="quiz_btn1" value="${quiz.quiz_btn1}"/>
-					보기2:<input type="text" class="form-control" name="quiz_btn2" id="quiz_btn2" value="${quiz.quiz_btn2}"/>
-					보기3:<input type="text" class="form-control" name="quiz_btn3" id="quiz_btn3" value="${quiz.quiz_btn3}"/>
-					보기4:<input type="text" class="form-control" name="quiz_btn4" id="quiz_btn4" value="${quiz.quiz_btn4}"/>
-					<br>
-					<button type="button" class="btn btn-sm btn-primary" id="btnSave" onclick="fix(this.form);">저장</button>
-					<button type="button" class="btn btn-sm btn-primary" onclick="location.href='quizList.do'">목록</button>
-					</form>
-     	 </div>
+      <div style="margin-left: auto; margin-right: auto; display: block;">
+       <a href="quizList.do"><img src="${pageContext.request.contextPath}/resources/img/cabin.jpg" style="width:320px; height:280px;"/></a>
+       <a href="oxQuizList.do"><img src="${pageContext.request.contextPath}/resources/img/cake.jpg" style=" width:320px; height:280px;"/></a>
+      </div>
+      <input type="hidden" id="user" name="user" value="${sessionScope.userId}">
+      
       </div>
     </div>
   </div>
